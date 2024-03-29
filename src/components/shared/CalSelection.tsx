@@ -1,45 +1,117 @@
-import { Button } from "../ui/button";
-import TaskCard from "./TaskCard";
+import { Plus } from 'lucide-react';
+import {
+	AlertDialog,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogFooter,
+	AlertDialogTrigger,
+	AlertDialogAction,
+} from '@/components/ui/alert-dialog';
+import TaskCard from './TaskCard';
+import TaskCategoryBtn from './TaskCategoryBtn';
+import { Link } from 'react-router-dom';
+import Card from '../ui/Card';
+import CalButton from './CalButton';
 
 const CalSelection = () => {
-    return (
-        <div>
-            <div className="flex space-x-5">
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Sun</p>
-                    <p className="text-3xl font-bold">10</p>
-                </Button>
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Mon</p>
-                    <p className="text-3xl font-bold">11</p>
-                </Button>
-                <Button className="smCaltn border flex flex-col px-5 py-9 rounded-lg bg-[#F97316CC]">
-                    <p className="">Tue</p>
-                    <p className="text-3xl font-bold">12</p>
-                </Button>
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Wed</p>
-                    <p className="text-3xl font-bold">13</p>
-                </Button>
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Thu</p>
-                    <p className="text-3xl font-bold">14</p>
-                </Button>
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Fri</p>
-                    <p className="text-3xl font-bold">15</p>
-                </Button>
-                <Button className="smCalBtn border flex flex-col px-5 py-9 rounded-lg">
-                    <p className="">Sat</p>
-                    <p className="text-3xl font-bold">16</p>
-                </Button>
-            </div>
-            <div className="flex space-x-2">
-                <TaskCard />
-                <TaskCard />
-            </div>
-        </div>
-    );
+	return (
+		<div>
+			{/* Upper Calendar  */}
+			<CalButton />
+
+			<div className="grid grid-cols-2 grid-rows-1 gap-4 my-5">
+				<Card>
+					<TaskCard title="Coding is easy..." url="./tick.svg" />
+				</Card>
+				<Card>
+					<TaskCard title="Coding is difficult..." url="./tick.svg" />
+				</Card>
+			</div>
+			<AlertDialog>
+				<AlertDialogTrigger>
+					<div className="taskAddButton">
+						<Plus />
+					</div>
+				</AlertDialogTrigger>
+				<AlertDialogContent className="mx-auto">
+					<Link to="/dashboard/createHabit">
+						<AlertDialogAction className="text-left">
+							<Card>
+								<TaskCategoryBtn
+									title="Habit"
+									url="./trophy.svg"
+									description=" Activity that repeats over time. It has detailed
+                                    tracking and statistics."
+								/>
+							</Card>
+						</AlertDialogAction>
+					</Link>
+
+					<AlertDialogAction className="text-left">
+						<Card>
+							<TaskCategoryBtn
+								title="Recurring Task"
+								url="./trophy.svg"
+								description=" Activity that repeats over time. It has detailed
+                                tracking and statistics."
+							/>
+						</Card>
+					</AlertDialogAction>
+
+					<AlertDialogAction className="text-left">
+						<Card>
+							<TaskCategoryBtn
+								title="Task"
+								url="./trophy.svg"
+								description=" Activity that repeats over time. It has detailed
+                                 tracking and statistics."
+							/>
+						</Card>
+					</AlertDialogAction>
+
+					<AlertDialogFooter>
+						<AlertDialogCancel>Cancel</AlertDialogCancel>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
+		</div>
+	);
 };
 
 export default CalSelection;
+
+{
+	/* <div className="addBtnCard">
+                            <div>
+                                <img
+                                    className="w-8 mr-4"
+                                    src="./swap.svg"
+                                    alt="trophy"
+                                />
+                            </div>
+                            <div>
+                                <p className="text-[22px]">Recurring Task</p>
+                                <p className="text-sm">
+                                    Activity that repeats over time. It has
+                                    detailed tracking and statistics.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="addBtnCard">
+                            <div>
+                                <img
+                                    className="w-8 mr-4"
+                                    src="./tick2.svg"
+                                    alt="trophy"
+                                />
+                            </div>
+                            <div>
+                                <p className="text-[22px]">Task</p>
+                                <p className="text-sm">
+                                    Activity that repeats over time. It has
+                                    detailed tracking and statistics.
+                                </p>
+                            </div>
+                        </div> */
+}

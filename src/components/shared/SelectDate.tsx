@@ -5,7 +5,7 @@ const SelectDate = () => {
     const [date, setDate] = useState<Date | undefined>(new Date());
 
     return (
-        <div>
+        <div className="flex justify-center items-center">
             <Calendar
                 mode="single"
                 selected={date}

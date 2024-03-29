@@ -1,8 +1,13 @@
-const TaskCard = () => {
+type TaskCardProps = {
+    title: string;
+    url: string;
+};
+
+const TaskCard = ({ title, url }: TaskCardProps) => {
     return (
-        <div className="taskCard p-6 flex">
-            <p className="text-[14px]">Coding is number one property...</p>
-            <img src="./tick.svg" alt="error" />
+        <div className="taskCard">
+            <p>{title}</p>
+            <img src={url} alt="error" />
         </div>
     );
 };

@@ -1,3 +1,6 @@
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
 const LandingOne = () => {
     return (
         <div className="text-center py-36">
@@ -7,6 +10,9 @@ const LandingOne = () => {
                 This web app will help you to keep an organized routine as you
                 build new habits.⭐
             </h6>
+            <Link to="/dashboard">
+                <Button className="mt-10">Take Me There</Button>
+            </Link>
         </div>
     );
 };
